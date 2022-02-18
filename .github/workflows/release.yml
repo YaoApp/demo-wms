@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: "Version tags"
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: pack for Station (@Silicon Valley)
+        run: |
+          cp -r ./cloud ../dist
+          rm -rf ../dist/.git
+          cp online-sv.env ../dist/.env
+          mkdir ../dist/db
+          tar cvfz dist-demo-wms.tar.gz -C ../dist/ .
+
+      - name: Push to Station (@Silicon Valley)
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: dist-demo-wms.tar.gz
+          host: 47.89.193.231
+          remote: /home/yao/
+          port: 22
+          user: yao
+          key: ${{ secrets.SSH_KEY }}
+
+      - name: Distribution
+        uses: appleboy/ssh-action@master
+        with:
+          host: 47.89.193.231
+          port: 22
+          username: yao
+          key: ${{ secrets.SSH_KEY }}
+          script: rm -rf /yaoapps/demo-wms && mkdir -p /yaoapps/demo-wms/logs && cd /yaoapps/demo-wms && tar xvfz /home/yao/dist-demo-wms.tar.gz && yao migrate  && yao run flows.init.menu  && yao run flows.demo.data
