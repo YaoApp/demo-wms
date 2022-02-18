@@ -1,0 +1,28 @@
+{
+  "name": "Face Entry",
+  "version": "1.0.0",
+  "description": "Face Entry",
+  "group": "v1",
+  "paths": [
+    {
+      "path": "/stranger",
+      "method": "POST",
+      "process": "scripts.face.Entry",
+      "in": [":payload"],
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    },
+    {
+      "path": "/recordvisit",
+      "method": "POST",
+      "in": [":payload"],
+      "process": "flows.face.recordvisit",
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    }
+  ]
+}

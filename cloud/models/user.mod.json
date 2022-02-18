@@ -1,0 +1,82 @@
+{
+  "name": "User",
+  "table": {
+    "name": "user",
+    "comment": "User"
+  },
+  "columns": [
+    { "label": "ID", "name": "id", "type": "ID" },
+    {
+      "label": "SN",
+      "name": "user_sn",
+      "type": "string",
+      "length": 64,
+      "nullable": true,
+      "unique": true,
+      "comment": "Outside System"
+    },
+    {
+      "label": "Supplier",
+      "name": "supplier_id",
+      "type": "bigInteger",
+      "index": true,
+      "nullable": true,
+      "comment": "Supplier"
+    },
+    {
+      "label": "Name",
+      "name": "name",
+      "type": "string",
+      "length": 64,
+      "nullable": true,
+      "index": true,
+      "comment": "Name"
+    },
+    {
+      "label": "IDCard",
+      "name": "idcard",
+      "type": "string",
+      "length": 64,
+      "nullable": true,
+      "index": true,
+      "comment": "IDCard"
+    },
+    {
+      "label": "Photo",
+      "name": "photo",
+      "type": "json",
+      "nullable": true,
+      "comment": "Face"
+    },
+    {
+      "label": "Type",
+      "name": "type",
+      "type": "enum",
+      "default": "Staff",
+      "option": ["Supplier", "Staff"],
+      "index": true,
+      "comment": "Type: Supplier, Staff"
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "enum",
+      "default": "Enabled",
+      "option": ["Enabled", "Disabled"],
+      "index": true,
+      "comment": "Status: Enabled, Disabled"
+    }
+  ],
+  "relations": {
+    "supplier": {
+      "type": "hasOne",
+      "model": "supplier",
+      "key": "id",
+      "foreign": "supplier_id",
+      "query": {
+        "select": ["id", "name", "short"]
+      }
+    }
+  },
+  "option": { "timestamps": true, "soft_deletes": true }
+}

@@ -1,0 +1,23 @@
+{
+  "label": "Warehouse Demo Data",
+  "version": "1.0.0",
+  "description": "Warehouse Demo Data",
+  "nodes": [
+    {
+      "name": "Warehouse",
+      "process": "models.warehouse.EachSave",
+      "args": [
+        [
+          {
+            "node_id": "moon_station",
+            "name": "Moon Station",
+            "location": "Moon",
+            "secret": "B4EXE1jzohg67sGd0h8zsoIgtUYEprzoCum3DKDQKS",
+            "status": "Online"
+          }
+        ]
+      ]
+    }
+  ],
+  "output": "{{$res.Warehouse}}"
+}

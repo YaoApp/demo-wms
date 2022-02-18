@@ -1,0 +1,49 @@
+{
+  "label": "Plan Demo Data",
+  "version": "1.0.0",
+  "description": "Plan Demo Data",
+  "nodes": [
+    {
+      "name": "Plan",
+      "process": "models.plan.EachSave",
+      "args": [
+        [
+          {
+            "name": "2021-12 Procurement",
+            "start": "2021-12-01 00:00:00",
+            "end": "2021-12-31 00:00:00",
+            "plan_sn": "202112",
+            "status": "Completed"
+          },
+          {
+            "name": "2022-01 Procurement",
+            "start": "2022-01-01 00:00:00",
+            "end": "2022-01-31 00:00:00",
+            "plan_sn": "202201",
+            "status": "Pending"
+          },
+          {
+            "name": "2022-02 Procurement",
+            "start": "2022-02-01 00:00:00",
+            "end": "2022-02-28 00:00:00",
+            "plan_sn": "202202",
+            "status": "Draft"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "Items",
+      "process": "models.plan.item.EachSave",
+      "args": [
+        [
+          { "plan_id": 1, "sku_id": 1, "amount": 1, "amount_plan": 1 },
+          { "plan_id": 2, "sku_id": 1, "amount": 0, "amount_plan": 2 },
+          { "plan_id": 2, "sku_id": 2, "amount": 0, "amount_plan": 4 },
+          { "plan_id": 2, "sku_id": 3, "amount": 0, "amount_plan": 2 }
+        ]
+      ]
+    }
+  ],
+  "output": "{{$res.Plan}}"
+}

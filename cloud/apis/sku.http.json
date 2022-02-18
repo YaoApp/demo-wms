@@ -1,0 +1,17 @@
+{
+  "name": "SKU API",
+  "version": "1.0.0",
+  "description": "SKU API",
+  "group": "sku",
+  "paths": [
+    {
+      "path": "/select",
+      "method": "GET",
+      "process": "flows.sku.select",
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    }
+  ]
+}

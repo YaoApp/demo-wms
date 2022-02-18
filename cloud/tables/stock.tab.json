@@ -1,0 +1,86 @@
+{
+  "name": "Stock",
+  "version": "1.0.0",
+  "decription": "Stock",
+  "bind": {
+    "model": "stock",
+    "withs": {
+      "sku": {
+        "query": {
+          "select": ["id", "specs"],
+          "withs": { "material": { "query": { "select": ["id", "name"] } } }
+        }
+      },
+      "warehouse": { "query": { "select": ["id", "name"] } }
+    }
+  },
+  "hooks": {
+    "after:search": "scripts.sku.WithsAfterSearch"
+  },
+  "apis": {
+    "search": {
+      "default": [
+        {
+          "withs": {
+            "sku": {
+              "query": {
+                "select": ["id", "specs"],
+                "withs": {
+                  "material": { "query": { "select": ["id", "name"] } }
+                }
+              }
+            },
+            "warehouse": { "query": { "select": ["id", "name"] } }
+          }
+        },
+        null,
+        10
+      ]
+    }
+  },
+  "columns": {
+    "Stock": { "@": "c.Label", "in": ["Stock", ":stock"] },
+    "Specs": { "@": "c.Tag", "in": ["Specs", ":spec_tags"] },
+    "Uptime": {
+      "@": "c.DateTime",
+      "in": ["Uptime", ":uptime", "YYYY-MM-DD HH:mm:ss"]
+    },
+    "SKU": { "@": "c.SkuTable" },
+    "Warehouse": { "@": "c.WarehouseTable" }
+  },
+  "filters": {
+    "Keywords": { "@": "f.Keywords", "in": ["where.material.name.match"] }
+  },
+  "list": {
+    "primary": "id",
+    "layout": {
+      "columns": [
+        { "name": "Warehouse", "width": 160 },
+        { "name": "SKU", "width": 260 },
+        { "name": "Stock", "width": 200 },
+        { "name": "Uptime" }
+      ],
+      "filters": [{ "name": "Keywords" }]
+    },
+    "actions": {
+      "pagination": {}
+    },
+    "option": {
+      "operation": {
+        "unfold": true,
+        "hideEdit": true,
+        "hideView": true,
+        "width": 0
+      }
+    }
+  },
+  "edit": {
+    "primary": "id",
+    "layout": {
+      "fieldset": [{ "columns": [{ "name": "ID", "width": 24 }] }]
+    },
+    "actions": { "cancel": {}, "save": {}, "delete": {} }
+  },
+  "insert": {},
+  "view": {}
+}

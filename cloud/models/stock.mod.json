@@ -1,0 +1,55 @@
+{
+  "name": "Stock",
+  "table": {
+    "name": "stock",
+    "comment": "Stock"
+  },
+  "columns": [
+    { "label": "ID", "name": "id", "type": "ID" },
+    {
+      "label": "SKU",
+      "name": "sku_id",
+      "type": "bigInteger",
+      "index": true,
+      "comment": "SKU ID"
+    },
+    {
+      "label": "Warehouse",
+      "name": "warehouse_id",
+      "type": "bigInteger",
+      "index": true,
+      "comment": "Warehouse ID"
+    },
+    {
+      "label": "Stock",
+      "name": "stock",
+      "type": "bigInteger",
+      "index": true,
+      "comment": "Stock"
+    },
+    {
+      "label": "Uptime",
+      "name": "uptime",
+      "type": "datetime",
+      "comment": "Uptime",
+      "index": true
+    }
+  ],
+  "relations": {
+    "warehouse": {
+      "type": "hasOne",
+      "model": "warehouse",
+      "key": "id",
+      "foreign": "warehouse_id",
+      "query": {}
+    },
+    "sku": {
+      "type": "hasOne",
+      "model": "material.sku",
+      "key": "id",
+      "foreign": "sku_id",
+      "query": {}
+    }
+  },
+  "option": { "timestamps": true, "soft_deletes": true }
+}

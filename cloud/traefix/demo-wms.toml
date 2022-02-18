@@ -1,0 +1,13 @@
+[[tls.certificates]]
+  certFile = "/data/certs/star.yaoapps.com.crt"
+  keyFile = "/data/certs/star.yaoapps.com.key"
+
+[http.routers.demo-wms]
+  tls = true
+  rule = "Host(`demo-wms.yaoapps.com`)"
+  service = "demo-wms@file"
+
+[http.services]
+  [http.services.demo-wms.loadBalancer]
+    [[http.services.demo-wms.loadBalancer.servers]]
+      url = "http://127.0.0.1:5096/"

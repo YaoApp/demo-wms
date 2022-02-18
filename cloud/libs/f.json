@@ -1,0 +1,13 @@
+{
+  "Keywords": {
+    "__comment": "{ '@': 'c.Keywords', 'in': ['where.name.match']}",
+    "label": "Keywords",
+    "bind": "{{$in.0}}",
+    "input": {
+      "type": "input",
+      "props": {
+        "placeholder": "Enter Keywords"
+      }
+    }
+  }
+}

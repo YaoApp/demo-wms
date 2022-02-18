@@ -1,0 +1,115 @@
+{
+  "name": "Record",
+  "version": "1.0.0",
+  "decription": "Record",
+  "bind": {
+    "model": "record",
+    "withs": {
+      "user": { "query": { "select": ["id", "name", "photo"] } },
+      "plan": { "query": { "select": ["id", "name"] } },
+      "warehouse": { "query": { "select": ["id", "name"] } },
+      "sku": {
+        "query": {
+          "select": ["id", "specs"],
+          "withs": {
+            "material": { "query": { "select": ["name", "id"] } }
+          }
+        }
+      }
+    }
+  },
+  "hooks": {
+    "after:search": "scripts.sku.WithsAfterSearch",
+    "before:save": "scripts.record.BeforeSave",
+    "after:save": "scripts.record.AfterSave"
+  },
+  "apis": {
+    "search": {
+      "default": [
+        {
+          "withs": {
+            "user": { "query": { "select": ["id", "name", "photo"] } },
+            "plan": { "query": { "select": ["id", "name"] } },
+            "warehouse": { "query": { "select": ["id", "name"] } },
+            "sku": {
+              "query": {
+                "select": ["id", "specs"],
+                "withs": {
+                  "material": { "query": { "select": ["name", "id"] } }
+                }
+              }
+            }
+          },
+          "orders": [{ "column": "uptime", "option": "desc" }]
+        },
+        null,
+        10
+      ]
+    }
+  },
+  "columns": {
+    "ID": { "@": "c.Label", "in": ["ID", ":id"] },
+    "Uptime": {
+      "@": "c.DatePicker",
+      "in": ["Uptime", ":uptime", "YYYY年MM月DD日 HH:mm:ss", true]
+    },
+    "Remark": { "@": "c.TextArea", "in": ["Remark", ":remark", 6] },
+    "SKU": { "@": "c.SkuTable" },
+    "Plan": { "@": "c.PlanTable" },
+    "User": { "@": "c.UserTable" },
+    "Warehouse": { "@": "c.WarehouseTable" },
+    "编辑单品": { "@": "c.SKU" },
+    "编辑用户": { "@": "c.User" },
+    "编辑计划": { "@": "c.Plan" },
+    "编辑仓库": { "@": "c.Warehouse" }
+  },
+  "filters": { "Keywords": { "@": "f.Keywords", "in": ["where.sn.match"] } },
+  "list": {
+    "primary": "id",
+    "layout": {
+      "columns": [
+        { "name": "Uptime", "width": 240 },
+        { "name": "Warehouse", "width": 160 },
+        { "name": "Type", "width": 80 },
+        { "name": "User", "width": 100 },
+        { "name": "SKU", "width": 240 },
+        { "name": "Status", "width": 80 },
+        { "name": "SN", "width": 260 },
+        { "name": "Plan", "width": 160 }
+      ],
+      "filters": [{ "name": "Keywords" }]
+    },
+    "actions": {
+      "create": {
+        "type": "button",
+        "props": { "label": "补录记录", "icon": "fas fa-plus" }
+      },
+      "pagination": {}
+    },
+    "option": { "operation": { "unfold": true, "scroll": { "x": 80 } } }
+  },
+  "edit": {
+    "primary": "id",
+    "layout": {
+      "fieldset": [
+        {
+          "columns": [
+            { "name": "编辑仓库", "width": 8 },
+            { "name": "Type", "width": 8 },
+            { "name": "编辑计划", "width": 8 },
+            { "name": "SN", "width": 8 },
+            { "name": "Uptime", "width": 8 },
+            { "name": "Status", "width": 8 },
+            { "name": "编辑单品", "width": 8 },
+            { "name": "编辑用户", "width": 8 },
+            { "name": "Remark", "width": 24 }
+          ]
+        }
+      ]
+    },
+    "actions": { "cancel": {}, "save": {}, "delete": { "type": "button" } },
+    "option": { "dev": true }
+  },
+  "insert": {},
+  "view": {}
+}

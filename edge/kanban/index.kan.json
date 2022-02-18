@@ -1,0 +1,62 @@
+{
+  "label": "DashBoard",
+  "version": "1.0.0",
+  "description": "DashBoard",
+  "nodes": [],
+  "output": {
+    "data": {
+      "Materials": [
+        { "Type": "Hardware", "Amount": 10 },
+        { "Type": "Woods", "Amount": 20 },
+        { "Type": "Steel", "Amount": 8 },
+        { "Type": "Tool", "Amount": 16 },
+        { "Type": "Wrench", "Amount": 16 }
+      ]
+    },
+    "query": "{{$in}}"
+  },
+  "apis": {},
+  "page": {
+    "option": {},
+    "primary": "name",
+    "layout": {
+      "filters": [],
+      "charts": [
+        {
+          "name": "Materials",
+          "width": 24,
+          "type": "bar",
+          "props": {
+            "height": 240,
+            "x_key": "Type",
+            "axisLabel": {
+              "interval": 0,
+              "rotate": 45,
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "tooltip": {
+              "textStyle": {
+                "color": "#a2a5b9",
+                "fontSize": 12
+              },
+              "backgroundColor": "#232326",
+              "borderRadius": 6
+            },
+            "series": [
+              {
+                "name": "Amount",
+                "type": "bar",
+                "colorBy": "data",
+                "splitLine": { "show": false },
+                "label": { "show": true, "position": "top" },
+                "axisLabel": { "show": true }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

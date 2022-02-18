@@ -1,0 +1,390 @@
+{
+  "label": "SKU Demo Data",
+  "version": "1.0.0",
+  "description": "SKU Demo Data",
+  "nodes": [
+    {
+      "name": "SKU",
+      "process": "models.material.sku.EachSave",
+      "args": [
+        [
+          {
+            "N": "Ladder",
+            "material_id": 1,
+            "sku_sn": "10000001",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Height": 250 }
+          },
+          {
+            "N": "Ladder",
+            "material_id": 1,
+            "sku_sn": "10000002",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Height": 350 }
+          },
+          {
+            "N": "Pliers",
+            "material_id": 2,
+            "sku_sn": "10001001",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Usage": "Trimming" }
+          },
+          {
+            "N": "Pliers",
+            "material_id": 2,
+            "sku_sn": "10001002",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Usage": "Stripping" }
+          },
+          {
+            "N": "Level Ruler",
+            "material_id": 3,
+            "sku_sn": "10002001",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Length": 100 }
+          },
+          {
+            "N": "Level Ruler",
+            "material_id": 3,
+            "sku_sn": "10002002",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Length": 60 }
+          },
+          {
+            "N": "Line nose",
+            "material_id": 4,
+            "sku_sn": "10003001",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Size": 35 }
+          },
+          {
+            "N": "Line nose",
+            "material_id": 4,
+            "sku_sn": "10003002",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Size": 70 }
+          },
+          {
+            "N": "Line nose",
+            "material_id": 4,
+            "sku_sn": "10003003",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Size": 150 }
+          },
+          {
+            "N": "Line nose",
+            "material_id": 4,
+            "sku_sn": "10003004",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Size": 185 }
+          },
+          {
+            "N": "Chain Hoist",
+            "material_id": 5,
+            "sku_sn": "10004001",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Mode": "2T" }
+          },
+          {
+            "N": "Chain Hoist",
+            "material_id": 5,
+            "sku_sn": "10004002",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Mode": "3T" }
+          },
+          {
+            "N": "Chain Hoist",
+            "material_id": 5,
+            "sku_sn": "10004003",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Mode": "4T" }
+          },
+          {
+            "N": "Elbow",
+            "material_id": 6,
+            "sku_sn": "10005001",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Material": "PPR", "Size": "50mm-32mm" }
+          },
+          {
+            "N": "Elbow",
+            "material_id": 6,
+            "sku_sn": "10005002",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Material": "PPR", "Size": "32mm" }
+          },
+          {
+            "N": "Elbow",
+            "material_id": 6,
+            "sku_sn": "10005003",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Material": "PPR", "Size": "50mm" }
+          },
+          {
+            "N": "Elbow",
+            "material_id": 6,
+            "sku_sn": "10005004",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Material": "PVC", "Size": "50mm-32mm" }
+          },
+          {
+            "N": "Elbow",
+            "material_id": 6,
+            "sku_sn": "10005005",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Material": "PVC", "Size": "32mm" }
+          },
+          {
+            "N": "Elbow",
+            "material_id": 6,
+            "sku_sn": "10005006",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Material": "PVC", "Size": "50mm" }
+          },
+          {
+            "N": "Elbow",
+            "material_id": 6,
+            "sku_sn": "10005007",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Material": "PE", "Size": "50mm-32mm" }
+          },
+          {
+            "N": "Elbow",
+            "material_id": 6,
+            "sku_sn": "10005008",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Material": "PE", "Size": "32mm" }
+          },
+          {
+            "N": "Elbow",
+            "material_id": 6,
+            "sku_sn": "10005009",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Material": "PE", "Size": "50mm" }
+          },
+          {
+            "N": "Steel Plate",
+            "material_id": 7,
+            "sku_sn": "10006001",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Length": "2m", "Width": "3m", "Thickness": "20mm" }
+          },
+          {
+            "N": "Steel Plate",
+            "material_id": 7,
+            "sku_sn": "10006002",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Length": "3m", "Width": "1.5m", "Thickness": "5mm" }
+          },
+          {
+            "N": "Switch Socket",
+            "material_id": 8,
+            "sku_sn": "10007001",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Number of holes": "3Holes" }
+          },
+          {
+            "N": "Switch Socket",
+            "material_id": 8,
+            "sku_sn": "10007002",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Number of holes": "5Holes" }
+          },
+          {
+            "N": "Switch Socket",
+            "material_id": 8,
+            "sku_sn": "10007003",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Number of holes": "8Holes" }
+          },
+          {
+            "N": "High Strength Screw",
+            "material_id": 9,
+            "sku_sn": "10008001",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Mode": "12*45" }
+          },
+          {
+            "N": "High Strength Screw",
+            "material_id": 9,
+            "sku_sn": "10008002",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Mode": "24*90" }
+          },
+          {
+            "N": "Scaffold",
+            "material_id": 10,
+            "sku_sn": "10009001",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": {}
+          },
+          {
+            "N": "Percussion Drill Bits",
+            "material_id": 11,
+            "sku_sn": "10010001",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Mode": "5.5" }
+          },
+          {
+            "N": "Percussion Drill Bits",
+            "material_id": 11,
+            "sku_sn": "10010002",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Mode": "6" }
+          },
+          {
+            "N": "Percussion Drill Bits",
+            "material_id": 11,
+            "sku_sn": "10010003",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Mode": "8" }
+          },
+          {
+            "N": "Percussion Drill Bits",
+            "material_id": 11,
+            "sku_sn": "10010004",
+            "unit": "Piece",
+            "price": 95.0,
+            "tax_rate": 0.05,
+            "tax_price": 100.0,
+            "fin_price": 100.0,
+            "specs": { "Mode": "10" }
+          }
+        ]
+      ]
+    }
+  ],
+  "output": "{{$res.SKU}}"
+}

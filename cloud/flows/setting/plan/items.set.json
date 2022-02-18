@@ -1,0 +1,73 @@
+{
+  "label": "SKU Setting",
+  "version": "1.0.0",
+  "description": "SKU Setting",
+  "nodes": [],
+  "output": {
+    "name": "List",
+    "columns": {
+      "SKU": {
+        "label": "SKU",
+        "edit": {
+          "type": "select",
+          "props": {
+            "value": ":sku_id",
+            "searchable": true,
+            "remote": {
+              "api": "/api/sku/select",
+              "query": {
+                "select": ["id", "unit"],
+                "keyword": "where_name_like"
+              }
+            }
+          }
+        }
+      },
+
+      "Plan": {
+        "label": "Plan",
+        "edit": { "type": "label", "props": { "value": "Plan:" } }
+      },
+      "AmountPlan": {
+        "label": "AmountPlan",
+        "edit": {
+          "type": "input",
+          "props": {
+            "value": ":amount_plan",
+            "type": "number",
+            "placeholder": "AmountPlan"
+          }
+        }
+      },
+
+      "Completed": {
+        "label": "Completed",
+        "edit": { "type": "label", "props": { "value": "Completed:" } }
+      },
+      "CompletedAmount": {
+        "label": "CompletedAmount",
+        "edit": {
+          "type": "input",
+          "props": {
+            "value": ":amount",
+            "type": "number",
+            "disabled": true,
+            "placeholder": "CompletedAmount"
+          }
+        }
+      }
+    },
+    "list": {
+      "primary": "id",
+      "layout": {
+        "columns": [
+          { "name": "SKU", "width": 12 },
+          { "name": "Plan", "width": 3 },
+          { "name": "AmountPlan", "width": 3 },
+          { "name": "Completed", "width": 3 },
+          { "name": "CompletedAmount", "width": 3 }
+        ]
+      }
+    }
+  }
+}

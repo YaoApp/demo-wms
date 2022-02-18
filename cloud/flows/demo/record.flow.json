@@ -1,0 +1,120 @@
+{
+  "label": "Record Demo Data",
+  "version": "1.0.0",
+  "description": "Record Demo Data",
+  "nodes": [
+    {
+      "name": "Record",
+      "process": "models.record.EachSave",
+      "args": [
+        [
+          {
+            "warehouse_id": 1,
+            "type": "Income",
+            "user_id": 1,
+            "uptime": "2021-12-15 10:38:21",
+            "status": "Effect"
+          },
+          {
+            "warehouse_id": 1,
+            "type": "Enter",
+            "user_id": 1,
+            "sku_id": 1,
+            "plan_id": 1,
+            "sn": "100000012021123642243533",
+            "sku_sn": "10000001",
+            "plan_sn": "202112",
+            "uptime": "2021-12-15 10:38:25",
+            "status": "Effect"
+          },
+          {
+            "warehouse_id": 1,
+            "type": "Enter",
+            "user_id": 1,
+            "sku_id": 1,
+            "plan_id": 1,
+            "sn": "100000012021128798321101",
+            "sku_sn": "10000001",
+            "plan_sn": "202112",
+            "uptime": "2021-12-15 10:38:25",
+            "status": "Effect"
+          },
+          {
+            "warehouse_id": 1,
+            "type": "Enter",
+            "user_id": 1,
+            "sku_id": 1,
+            "plan_id": 1,
+            "sn": "100000012021124947278772",
+            "sku_sn": "10000001",
+            "plan_sn": "202112",
+            "uptime": "2021-12-15 10:38:25",
+            "status": "Archive"
+          },
+          {
+            "warehouse_id": 1,
+            "type": "Enter",
+            "user_id": 1,
+            "sku_id": 1,
+            "plan_id": 1,
+            "sn": "100000012021129634062032",
+            "sku_sn": "10000001",
+            "plan_sn": "202112",
+            "uptime": "2021-12-15 10:38:25",
+            "status": "Archive"
+          },
+          {
+            "warehouse_id": 1,
+            "type": "Leave",
+            "user_id": 1,
+            "uptime": "2021-12-15 10:40:10",
+            "status": "Effect"
+          },
+          {
+            "warehouse_id": 1,
+            "type": "Income",
+            "user_id": 5,
+            "uptime": "2021-12-16 16:23:58",
+            "status": "Effect"
+          },
+          {
+            "warehouse_id": 1,
+            "type": "Leave",
+            "user_id": 5,
+            "uptime": "2021-12-16 16:25:40",
+            "status": "Effect"
+          },
+          {
+            "warehouse_id": 1,
+            "type": "Outdoor",
+            "user_id": 5,
+            "sku_id": 1,
+            "sn": "100000012021124947278772",
+            "sku_sn": "10000001",
+            "uptime": "2021-12-16 16:25:46",
+            "status": "Archive"
+          },
+          {
+            "warehouse_id": 1,
+            "type": "Outdoor",
+            "user_id": 5,
+            "sku_id": 1,
+            "sn": "100000012021129634062032",
+            "sku_sn": "10000001",
+            "uptime": "2021-12-16 16:25:46",
+            "status": "Archive"
+          },
+          {
+            "warehouse_id": 1,
+            "type": "Outdoor",
+            "sn": "100000012021129634062011",
+            "uptime": "2021-12-18 00:20:46",
+            "remark": "No Mark",
+            "status": "Error"
+          }
+        ]
+      ]
+    }
+  ],
+  "output": "{{$res.Record}}"
+}

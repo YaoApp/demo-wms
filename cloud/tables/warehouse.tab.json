@@ -1,0 +1,60 @@
+{
+  "name": "Warehouse",
+  "version": "1.0.0",
+  "decription": "Warehouse",
+  "bind": { "model": "warehouse", "withs": {} },
+  "hooks": {},
+  "apis": {
+    "search": { "default": [null, null, 10] }
+  },
+  "columns": {
+    "ID": { "@": "c.Label", "in": ["ID", ":id"] },
+    "Status": { "@": "c.Label", "in": ["Status", ":status"] },
+    "IP": { "@": "c.Label", "in": ["IP", ":ip"] },
+    "Uptime": {
+      "@": "c.DateTime",
+      "in": ["Uptime", ":uptime", "YYYY-MM-DD @hh:mm:ss"]
+    }
+  },
+  "filters": { "Keywords": { "@": "f.Keywords", "in": ["where.name.match"] } },
+  "list": {
+    "primary": "id",
+    "layout": {
+      "columns": [
+        { "name": "ID", "width": 80 },
+        { "name": "Node", "width": 120 },
+        { "name": "Name", "width": 200 },
+        { "name": "IP", "width": 200 },
+        { "name": "Uptime", "width": 200 },
+        { "name": "Status" }
+      ],
+      "filters": [{ "name": "Keywords" }]
+    },
+    "actions": {
+      "create": {
+        "type": "button",
+        "props": { "label": "Create New", "icon": "fas fa-plus" }
+      },
+      "pagination": {}
+    },
+    "option": { "operation": { "unfold": true, "hideView": true } }
+  },
+  "edit": {
+    "primary": "id",
+    "layout": {
+      "fieldset": [
+        {
+          "columns": [
+            { "name": "Name", "width": 24 },
+            { "name": "Node", "width": 12 },
+            { "name": "Secret", "width": 12 },
+            { "name": "Location", "width": 24 }
+          ]
+        }
+      ]
+    },
+    "actions": { "cancel": {}, "save": {}, "delete": { "type": "button" } }
+  },
+  "insert": {},
+  "view": {}
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Node Admin",
+  "short": "Node Admin",
+  "description": "WMS",
+  "option": {
+    "nav_user": "xiang.user",
+    "nav_menu": "xiang.menu",
+    "hide_user": true,
+    "hide_menu": true,
+    "login": {
+      "entry": {
+        "admin": "/kanban/index"
+      }
+    }
+  }
+}

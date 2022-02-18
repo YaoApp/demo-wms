@@ -1,0 +1,36 @@
+{
+  "label": "Category List",
+  "version": "1.0.0",
+  "description": "Category List",
+  "nodes": [
+    {
+      "name": "Category",
+      "engine": "xiang",
+      "query": {
+        "debug": true,
+        "select": [
+          "category.id",
+          "category.name",
+          "category.parent_id",
+          "parent.name as parent_name"
+        ],
+        "from": "category",
+        "joins": [
+          {
+            "left": true,
+            "from": "category as parent",
+            "key": "parent.id",
+            "foreign": "category.parent_id"
+          }
+        ],
+        "limit": 1000
+      }
+    },
+    {
+      "name": "CategoryTree",
+      "process": "xiang.helper.ArrayTree",
+      "args": ["{{$res.Category}}", { "parent": "parent_id", "empty": null }]
+    }
+  ],
+  "output": { "data": "{{$res.CategoryTree}}" }
+}

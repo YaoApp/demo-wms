@@ -1,0 +1,7 @@
+.DS_Store
+cloud/data
+cloud/db
+cloud/logs/
+edge/data
+edge/db
+edge/logs/

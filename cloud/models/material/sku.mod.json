@@ -1,0 +1,96 @@
+{
+  "name": "SKU",
+  "table": {
+    "name": "sku",
+    "comment": "SKU"
+  },
+  "columns": [
+    { "label": "ID", "name": "id", "type": "ID" },
+    {
+      "label": "Material",
+      "name": "material_id",
+      "type": "bigInteger",
+      "index": true,
+      "comment": "Material"
+    },
+    {
+      "label": "SN",
+      "name": "sku_sn",
+      "type": "string",
+      "length": 32,
+      "nullable": true,
+      "unique": true,
+      "comment": "SKU SN",
+      "__comment": "RFID KIND"
+    },
+    {
+      "label": "Unit",
+      "name": "unit",
+      "type": "string",
+      "nullable": true,
+      "comment": "Unit"
+    },
+    {
+      "label": "Price",
+      "name": "price",
+      "type": "decimal",
+      "index": true,
+      "nullable": true,
+      "comment": "Price"
+    },
+    {
+      "label": "TaxRate",
+      "name": "tax_rate",
+      "type": "decimal",
+      "index": true,
+      "nullable": true,
+      "comment": "TaxRate"
+    },
+    {
+      "label": "TaxPrice",
+      "name": "tax_price",
+      "type": "decimal",
+      "index": true,
+      "nullable": true,
+      "comment": "TaxPrice"
+    },
+    {
+      "label": "FinPrice",
+      "name": "fin_price",
+      "type": "decimal",
+      "index": true,
+      "nullable": true,
+      "comment": "FinPrice"
+    },
+    {
+      "label": "Specs",
+      "name": "specs",
+      "type": "json",
+      "nullable": true,
+      "comment": "Specs(KEY-VALUE)"
+    },
+    { "label": "Images", "name": "images", "type": "json", "nullable": true },
+    { "label": "Detail", "name": "detail", "type": "text", "nullable": true },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "enum",
+      "default": "InProduction",
+      "option": ["InProduction", "Discontinued"],
+      "index": true,
+      "comment": "Status: InProduction, Discontinued"
+    }
+  ],
+  "relations": {
+    "material": {
+      "type": "hasOne",
+      "model": "material",
+      "key": "id",
+      "foreign": "material_id",
+      "query": {
+        "withs": { "category": {}, "supplier": {} }
+      }
+    }
+  },
+  "option": { "timestamps": true, "soft_deletes": true }
+}

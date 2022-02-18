@@ -1,0 +1,26 @@
+{
+  "name": "Setting API",
+  "version": "1.0.0",
+  "description": "Setting API",
+  "group": "xiang/setting",
+  "paths": [
+    {
+      "path": "/material.specs",
+      "method": "GET",
+      "process": "flows.setting.material.specs",
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    },
+    {
+      "path": "/plan.items",
+      "method": "GET",
+      "process": "flows.setting.plan.items",
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    }
+  ]
+}

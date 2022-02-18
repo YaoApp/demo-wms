@@ -1,0 +1,23 @@
+{
+  "label": "Stocks CNT",
+  "version": "1.0.0",
+  "description": "Stocks CNT",
+  "nodes": [
+    {
+      "name": "Stocks",
+      "engine": "xiang",
+      "query": {
+        "debug": true,
+        "select": [":COUNT(id) as stock", "sku_id", "sku_sn"],
+        "from": "$record",
+        "wheres": [
+          { ":sku_id": "SkuID", "=": "?:$in.0" },
+          { ":status": "Status", "=": "Effect" },
+          { ":type": "Type", "=": "Enter" }
+        ],
+        "first": 1
+      }
+    }
+  ],
+  "output": "{{$res.Stocks.stock}}"
+}

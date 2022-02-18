@@ -1,0 +1,38 @@
+{
+  "name": "Sync API",
+  "version": "1.0.0",
+  "description": "Sync API",
+  "group": "sync",
+  "paths": [
+    {
+      "path": "/user",
+      "method": "POST",
+      "process": "scripts.sync.UserEvent",
+      "in": [":payload"],
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    },
+    {
+      "path": "/data",
+      "method": "POST",
+      "process": "scripts.sync.Data",
+      "in": [":payload"],
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    },
+    {
+      "path": "/live",
+      "method": "GET",
+      "process": "scripts.sync.Live",
+      "in": [],
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    }
+  ]
+}

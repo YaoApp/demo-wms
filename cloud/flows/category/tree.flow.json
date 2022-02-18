@@ -1,0 +1,22 @@
+{
+  "label": "Category List",
+  "version": "1.0.0",
+  "description": "Category List",
+  "nodes": [
+    {
+      "name": "Category",
+      "engine": "xiang",
+      "query": {
+        "select": ["id", "name", "name as label", "id as value", "parent_id"],
+        "from": "$material.category",
+        "limit": 1000
+      }
+    },
+    {
+      "name": "CategoryTree",
+      "process": "xiang.helper.ArrayTree",
+      "args": ["{{$res.Category}}", { "parent": "parent_id" }]
+    }
+  ],
+  "output": "{{$res.CategoryTree}}"
+}

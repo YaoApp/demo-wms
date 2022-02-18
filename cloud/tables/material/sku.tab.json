@@ -1,0 +1,111 @@
+{
+  "name": "SKU",
+  "version": "1.0.0",
+  "decription": "Sku",
+  "bind": {
+    "model": "material.sku",
+    "withs": {
+      "material": {
+        "query": { "withs": { "category": {}, "supplier": {} } }
+      }
+    }
+  },
+  "hooks": {
+    "after:search": "scripts.sku.AfterSearch",
+    "after:find": "scripts.sku.AfterFind"
+  },
+  "apis": {
+    "search": {
+      "default": [
+        {
+          "withs": {
+            "material": {
+              "query": { "withs": { "category": {}, "supplier": {} } }
+            }
+          }
+        },
+        null,
+        10
+      ]
+    }
+  },
+  "columns": {
+    "ID": { "@": "c.Label", "in": ["ID", ":id"] },
+    "Specs": { "@": "c.Tag", "in": ["Specs", ":spec_tags"] },
+    "Name": { "@": "c.Label", "in": ["Name", ":material.name"] },
+    "Icon": {
+      "@": "c.Images",
+      "in": ["Icon", ":material.icon", 1, false]
+    },
+    "Images": { "@": "c.Images", "in": ["Images", ":images", 9, true] },
+    "Detail": { "@": "c.TextArea", "in": ["Detail", ":detail", 10] },
+    "Material": { "@": "c.Material" },
+    "Category": { "@": "c.Category" },
+    "Supplier": { "@": "c.Supplier" },
+    "SpecsTable": {
+      "label": "Specs",
+      "edit": {
+        "type": "dynamicList",
+        "props": {
+          "setting": "material.specs",
+          "value": ":specs_list",
+          "query": { "sort": "$index" }
+        }
+      }
+    }
+  },
+  "filters": {
+    "Keywords": { "@": "f.Keywords", "in": ["where.material.name.match"] }
+  },
+  "list": {
+    "primary": "id",
+    "layout": {
+      "columns": [
+        { "name": "ID", "width": 80 },
+        { "name": "SN", "width": 100 },
+        { "name": "Icon", "width": 80 },
+        { "name": "Name", "width": 200 },
+        { "name": "Specs", "width": 300 },
+        { "name": "Supplier", "width": 100 },
+        { "name": "Category" }
+      ],
+      "filters": [{ "name": "Keywords" }]
+    },
+    "actions": {
+      "create": {
+        "type": "button",
+        "props": { "label": "添加单品", "icon": "fas fa-plus" }
+      },
+      "pagination": {}
+    },
+    "option": { "operation": { "unfold": true, "hideView": true } }
+  },
+  "edit": {
+    "primary": "id",
+    "layout": {
+      "fieldset": [
+        {
+          "columns": [
+            { "name": "SN", "width": 6 },
+            { "name": "Material", "width": 12 },
+            { "name": "Unit", "width": 6 },
+            { "name": "SpecsTable", "width": 24 }
+          ]
+        },
+        {
+          "columns": [
+            { "name": "Price", "width": 12 },
+            { "name": "TaxRate", "width": 12 },
+            { "name": "TaxPrice", "width": 12 },
+            { "name": "FinPrice", "width": 12 },
+            { "name": "Images", "width": 24 },
+            { "name": "Detail", "width": 24 }
+          ]
+        }
+      ]
+    },
+    "actions": { "cancel": {}, "save": {}, "delete": { "type": "button" } }
+  },
+  "insert": {},
+  "view": {}
+}

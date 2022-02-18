@@ -1,0 +1,332 @@
+{
+  "Label": {
+    "__comment": "{ '@': 'c.Label', 'in': ['Uptime',':updated_at']}",
+    "label": "{{$in.0}}",
+    "view": {
+      "name": "label",
+      "props": {
+        "value": "{{$in.1}}"
+      }
+    }
+  },
+  "Tag": {
+    "__comment": "{ '@': 'c.Tag', 'in': ['Uptime',':updated_at']}",
+    "label": "{{$in.0}}",
+    "view": {
+      "name": "tag",
+      "props": {
+        "value": "{{$in.1}}"
+      }
+    }
+  },
+  "TextArea": {
+    "__comment": "{ '@': 'c.TextArea', 'in':['Detail', ':desc', 4]}",
+    "label": "{{$in.0}}",
+    "view": {
+      "type": "label",
+      "props": {
+        "value": "{{$in.1}}"
+      }
+    },
+    "edit": {
+      "type": "textArea",
+      "props": {
+        "value": "{{$in.1}}",
+        "rows": "{{$in.2}}"
+      }
+    }
+  },
+  "Images": {
+    "__comment": "{ '@': 'c.Images', 'in': ['Images', 'images', 1, false] }",
+    "label": "{{$in.0}}",
+    "view": {
+      "type": "image",
+      "props": {
+        "value": "{{$in.1}}",
+        "width": 40,
+        "height": 40
+      }
+    },
+    "edit": {
+      "type": "upload",
+      "props": {
+        "value": "{{$in.1}}",
+        "filetype": "image",
+        "maxCount": "{{$in.2}}",
+        "multiple": "{{$in.3}}"
+      }
+    }
+  },
+  "DateTime": {
+    "__comment": "{ '@': 'c.DateTime', 'in': ['Uptime',':updated_at', 'YYYY-MM-DD @hh:mm:ss'] }",
+    "label": "{{$in.0}}",
+    "view": {
+      "name": "label",
+      "props": {
+        "value": "{{$in.1}}",
+        "format": "{{$in.2}}"
+      }
+    }
+  },
+  "DatePicker": {
+    "__comment": "{ '@': 'c.DatePicker', 'in': ['Uptime',':updated_at', 'YYYY-MM-DD @hh:mm:ss', true]}",
+    "label": "{{$in.0}}",
+    "view": {
+      "name": "label",
+      "props": {
+        "value": "{{$in.1}}",
+        "format": "{{$in.2}}"
+      }
+    },
+    "edit": {
+      "type": "datePicker",
+      "props": {
+        "value": "{{$in.1}}",
+        "format": "{{$in.2}}",
+        "showTime": "{{$in.3}}"
+      }
+    }
+  },
+  "Category": {
+    "__comment": "{ '@': 'c.Category'}",
+    "label": "Category",
+    "view": {
+      "name": "label",
+      "props": {
+        "value": ":category.name"
+      }
+    },
+    "edit": {
+      "type": "treeSelect",
+      "props": {
+        "value": ":category_id",
+        "allowClear": true,
+        "remote": {
+          "api": "/api/category/select",
+          "query": { "select": ["id", "name"] }
+        }
+      }
+    }
+  },
+  "Parent": {
+    "__comment": "{ '@': 'c.Parent'}",
+    "label": "Parent",
+    "view": {
+      "name": "label",
+      "props": {
+        "value": ":parent_name"
+      }
+    },
+    "edit": {
+      "type": "treeSelect",
+      "props": {
+        "value": ":parent_id",
+        "allowClear": true,
+        "remote": {
+          "api": "/api/category/select",
+          "query": { "select": ["id", "name"] }
+        }
+      }
+    }
+  },
+  "Supplier": {
+    "__comment": "{ '@': 'c.Supplier'}",
+    "label": "Supplier",
+    "view": {
+      "name": "label",
+      "props": {
+        "value": ":supplier.short"
+      }
+    },
+    "edit": {
+      "type": "select",
+      "props": {
+        "value": ":supplier_id",
+        "allowClear": true,
+        "remote": {
+          "api": "/api/xiang/table/supplier/select",
+          "query": {
+            "select": ["id", "name", "short"],
+            "limit": 500,
+            "name": "short"
+          }
+        }
+      }
+    }
+  },
+  "Material": {
+    "__comment": "{ '@': 'c.Material'}",
+    "label": "Material",
+    "view": {
+      "name": "label",
+      "props": {
+        "value": ":material.name"
+      }
+    },
+    "edit": {
+      "type": "select",
+      "props": {
+        "value": ":material_id",
+        "allowClear": true,
+        "searchable": true,
+        "remote": {
+          "api": "/api/xiang/table/material/select",
+          "query": {
+            "select": ["id", "name"],
+            "limit": 500
+          }
+        }
+      }
+    }
+  },
+  "SkuTable": {
+    "__comment": "{ '@': 'c.SKU'}",
+    "label": "SKU",
+    "view": {
+      "type": "formModal",
+      "props": {
+        "type": "view",
+        "value": ":sku_name",
+        "formId": ":sku.id",
+        "formName": "material.sku"
+      }
+    }
+  },
+  "PlanTable": {
+    "__comment": "{ '@': 'c.Plan'}",
+    "label": "Plan",
+    "view": {
+      "type": "formModal",
+      "props": {
+        "type": "view",
+        "value": ":plan.name",
+        "formId": ":plan.id",
+        "formName": "plan"
+      }
+    }
+  },
+  "UserTable": {
+    "__comment": "{ '@': 'c.User'}",
+    "label": "User",
+    "view": {
+      "type": "formModal",
+      "props": {
+        "type": "view",
+        "value": ":user.name",
+        "formId": ":user.id",
+        "formName": "user"
+      }
+    }
+  },
+  "WarehouseTable": {
+    "__comment": "{ '@': 'c.Warehouse'}",
+    "label": "Warehouse",
+    "view": {
+      "type": "formModal",
+      "props": {
+        "type": "view",
+        "value": ":warehouse.name",
+        "formId": ":warehouse_id",
+        "formName": "warehouse"
+      }
+    }
+  },
+  "SKU": {
+    "__comment": "{ '@': 'c.SKU'}",
+    "label": "SKU",
+    "view": {
+      "name": "label",
+      "props": {
+        "value": ":material.name"
+      }
+    },
+    "edit": {
+      "type": "select",
+      "props": {
+        "value": ":sku_id",
+        "allowClear": true,
+        "searchable": true,
+        "remote": {
+          "api": "/api/sku/select",
+          "query": {
+            "select": ["id", "unit"],
+            "limit": 500,
+            "name": "unit"
+          }
+        }
+      }
+    }
+  },
+  "User": {
+    "__comment": "{ '@': 'c.User'}",
+    "label": "User",
+    "view": {
+      "name": "label",
+      "props": {
+        "value": ":user.name"
+      }
+    },
+    "edit": {
+      "type": "select",
+      "props": {
+        "value": ":user_id",
+        "allowClear": true,
+        "remote": {
+          "api": "/api/xiang/table/user/select",
+          "query": {
+            "select": ["id", "name"],
+            "limit": 500
+          }
+        }
+      }
+    }
+  },
+  "Plan": {
+    "__comment": "{ '@': 'c.Plan'}",
+    "label": "Plan",
+    "view": {
+      "name": "label",
+      "props": {
+        "value": ":plan.name"
+      }
+    },
+    "edit": {
+      "type": "select",
+      "props": {
+        "value": ":plan_id",
+        "allowClear": true,
+        "remote": {
+          "api": "/api/xiang/table/plan/select",
+          "query": {
+            "select": ["id", "name"],
+            "limit": 500
+          }
+        }
+      }
+    }
+  },
+  "Warehouse": {
+    "__comment": "{ '@': 'c.Warehouse'}",
+    "label": "Warehouse",
+    "view": {
+      "name": "label",
+      "props": {
+        "value": ":warehouse.name"
+      }
+    },
+    "edit": {
+      "type": "select",
+      "props": {
+        "value": ":warehouse_id",
+        "allowClear": true,
+        "remote": {
+          "api": "/api/xiang/table/warehouse/select",
+          "query": {
+            "select": ["id", "name"],
+            "limit": 500
+          }
+        }
+      }
+    }
+  }
+}

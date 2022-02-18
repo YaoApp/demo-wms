@@ -1,0 +1,20 @@
+{
+  "name": "Yao WMS",
+  "short": "Yao WMS",
+  "description": "WMS",
+  "option": {
+    "nav_user": "xiang.user",
+    "nav_menu": "xiang.menu",
+    "hide_user": true,
+    "hide_menu": true,
+    "login": {
+      "entry": {
+        "admin": "/kanban/index"
+      },
+      "password": {
+        "captcha": "/api/user/captcha",
+        "login": "/api/user/login"
+      }
+    }
+  }
+}

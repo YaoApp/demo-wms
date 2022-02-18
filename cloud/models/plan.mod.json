@@ -1,0 +1,63 @@
+{
+  "name": "Plan",
+  "table": {
+    "name": "plan",
+    "comment": "Plan"
+  },
+  "columns": [
+    { "label": "ID", "name": "id", "type": "ID" },
+    {
+      "label": "Name",
+      "name": "name",
+      "type": "string",
+      "unique": true,
+      "length": 40,
+      "comment": "Name"
+    },
+    {
+      "label": "Start",
+      "name": "start",
+      "type": "datetime",
+      "comment": "Start",
+      "nullable": true,
+      "index": true
+    },
+    {
+      "label": "End",
+      "name": "end",
+      "type": "datetime",
+      "comment": "End",
+      "nullable": true,
+      "index": true
+    },
+    {
+      "label": "SN",
+      "name": "plan_sn",
+      "type": "string",
+      "length": 32,
+      "unique": true,
+      "comment": "SN"
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "enum",
+      "default": "Draft",
+      "option": ["Draft", "Pending", "Completed"],
+      "index": true,
+      "comment": "Status: Draft, Pending, Completed"
+    }
+  ],
+  "relations": {
+    "items": {
+      "type": "hasMany",
+      "model": "plan.item",
+      "key": "plan_id",
+      "foreign": "id",
+      "query": {
+        "select": ["id", "sku_id", "amount", "amount_plan"]
+      }
+    }
+  },
+  "option": { "timestamps": true, "soft_deletes": true }
+}

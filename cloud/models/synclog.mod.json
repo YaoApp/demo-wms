@@ -1,0 +1,40 @@
+{
+  "name": "Sync",
+  "table": {
+    "name": "synclog",
+    "comment": "Sync"
+  },
+  "columns": [
+    { "label": "ID", "name": "id", "type": "ID" },
+    {
+      "label": "Warehouse",
+      "name": "warehouse_id",
+      "type": "integer",
+      "comment": "Warehouse ID",
+      "index": true
+    },
+    {
+      "label": "SyncAt",
+      "name": "sync_at",
+      "type": "datetime",
+      "comment": "Uptime",
+      "index": true
+    },
+    {
+      "label": "Data",
+      "name": "data",
+      "type": "json",
+      "comment": "Data",
+      "nullable": true
+    },
+    {
+      "label": "Event",
+      "name": "event",
+      "type": "enum",
+      "default": "User",
+      "option": ["User", "Data"],
+      "index": true,
+      "comment": "Event: User, Data"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Supplier",
+  "table": {
+    "name": "supplier",
+    "comment": "Supplier"
+  },
+  "columns": [
+    { "label": "ID", "name": "id", "type": "ID" },
+    {
+      "label": "Name",
+      "name": "name",
+      "type": "string",
+      "length": 200,
+      "unique": true
+    },
+    {
+      "label": "Short",
+      "name": "short",
+      "type": "string",
+      "length": 200,
+      "index": true,
+      "nullable": true
+    },
+    {
+      "label": "StaffSN",
+      "name": "sn",
+      "type": "string",
+      "length": 200,
+      "index": true,
+      "nullable": true
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "enum",
+      "default": "Enabled",
+      "option": ["Enabled", "Disabled"],
+      "index": true,
+      "comment": "Status: Enabled, Disabled"
+    }
+  ],
+  "option": { "timestamps": true, "soft_deletes": true }
+}

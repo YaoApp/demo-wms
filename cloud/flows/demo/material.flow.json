@@ -1,0 +1,139 @@
+{
+  "label": "Material Demo Data",
+  "version": "1.0.0",
+  "description": "Material Demo Data",
+  "nodes": [
+    {
+      "name": "Material",
+      "process": "models.material.EachSave",
+      "args": [
+        [
+          { "supplier_id": 1, "category_id": 6, "name": "Ladder", "N": 1 },
+          { "supplier_id": 2, "category_id": 7, "name": "Pliers", "N": 2 },
+          { "supplier_id": 3, "category_id": 7, "name": "Level Ruler", "N": 3 },
+          { "supplier_id": 1, "category_id": 1, "name": "Line nose", "N": 4 },
+          { "supplier_id": 2, "category_id": 1, "name": "Chain Hoist", "N": 5 },
+          { "supplier_id": 3, "category_id": 1, "name": "Elbow", "N": 6 },
+          { "supplier_id": 1, "category_id": 2, "name": "Steel Plate", "N": 7 },
+          {
+            "supplier_id": 2,
+            "category_id": 4,
+            "name": "Switch Socket",
+            "N": 8
+          },
+          {
+            "supplier_id": 3,
+            "category_id": 5,
+            "name": "High Strength Screw",
+            "N": 9
+          },
+          { "supplier_id": 1, "category_id": 3, "name": "Scaffold", "N": 10 },
+          {
+            "supplier_id": 2,
+            "category_id": 3,
+            "name": "Percussion Drill Bits",
+            "N": 11
+          }
+        ]
+      ]
+    },
+    {
+      "name": "Specs",
+      "process": "models.material.spec.EachSave",
+      "args": [
+        [
+          {
+            "material_id": 1,
+            "name": "Height",
+            "type": "Number",
+            "N": "Ladder"
+          },
+          {
+            "material_id": 2,
+            "name": "Usage",
+            "type": "Ratio",
+            "values": ["Trimming", "Stripping"],
+            "N": "Pliers"
+          },
+          {
+            "material_id": 3,
+            "name": "Length",
+            "type": "Number",
+            "N": "Level Ruler"
+          },
+          {
+            "material_id": 4,
+            "name": "Size",
+            "type": "Number",
+            "N": "Line nose"
+          },
+          {
+            "material_id": 5,
+            "name": "Mode",
+            "type": "Ratio",
+            "N": "Chain Hoist",
+            "values": ["2T", "3T", "5T"]
+          },
+          {
+            "material_id": 6,
+            "name": "Material",
+            "type": "Ratio",
+            "N": "Elbow",
+            "values": ["PPR", "PVC", "PE"]
+          },
+          {
+            "material_id": 6,
+            "name": "Size",
+            "type": "Ratio",
+            "N": "Elbow",
+            "values": ["50mm-32mm", "50mm", "32mm"]
+          },
+          {
+            "material_id": 7,
+            "name": "Length",
+            "type": "Number",
+            "N": "Steel Plate"
+          },
+          {
+            "material_id": 7,
+            "name": "Width",
+            "type": "Number",
+            "N": "Steel Plate"
+          },
+          {
+            "material_id": 7,
+            "name": "Thickness",
+            "type": "Number",
+            "N": "Steel Plate"
+          },
+          {
+            "material_id": 8,
+            "name": "Number of holes",
+            "type": "Ratio",
+            "N": "Switch Socket",
+            "values": ["3Holes", "5Holes", "8Holes"]
+          },
+          {
+            "material_id": 9,
+            "name": "Mode",
+            "type": "Ratio",
+            "N": "High Strength Screw",
+            "values": ["12*45", "24*90"]
+          },
+          {
+            "material_id": 11,
+            "name": "Mode",
+            "type": "Ratio",
+            "N": "Percussion Drill Bits",
+            "values": ["5.5", "6", "8", "10"]
+          }
+        ]
+      ]
+    },
+    {
+      "name": "SKU",
+      "process": "flows.demo.material.sku"
+    }
+  ],
+  "output": "{{$res.Material}}"
+}

@@ -1,0 +1,49 @@
+{
+  "name": "Supplier",
+  "version": "1.0.0",
+  "decription": "Supplier",
+  "bind": { "model": "supplier", "withs": {} },
+  "hooks": {},
+  "apis": { "search": { "default": [null, null, 10] } },
+  "columns": { "ID": { "@": "c.Label", "in": ["ID", ":id"] } },
+  "filters": { "Keywords": { "@": "f.Keywords", "in": ["where.name.match"] } },
+  "list": {
+    "primary": "id",
+    "layout": {
+      "columns": [
+        { "name": "ID", "width": 80 },
+        { "name": "Name", "width": 300 },
+        { "name": "Short", "width": 100 },
+        { "name": "StaffSN", "width": 100 },
+        { "name": "Status" }
+      ],
+      "filters": [{ "name": "Keywords" }]
+    },
+    "actions": {
+      "create": {
+        "type": "button",
+        "props": { "label": "Create New", "icon": "fas fa-plus" }
+      },
+      "pagination": {}
+    },
+    "option": { "operation": { "unfold": true, "hideView": true } }
+  },
+  "edit": {
+    "primary": "id",
+    "layout": {
+      "fieldset": [
+        {
+          "columns": [
+            { "name": "Name", "width": 18 },
+            { "name": "Status", "width": 6 },
+            { "name": "Short", "width": 9 },
+            { "name": "StaffSN", "width": 9 }
+          ]
+        }
+      ]
+    },
+    "actions": { "cancel": {}, "save": {}, "delete": { "type": "button" } }
+  },
+  "insert": {},
+  "view": {}
+}

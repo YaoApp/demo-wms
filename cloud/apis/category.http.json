@@ -1,0 +1,17 @@
+{
+  "name": "Category API",
+  "version": "1.0.0",
+  "description": "Category API",
+  "group": "category",
+  "paths": [
+    {
+      "path": "/select",
+      "method": "GET",
+      "process": "flows.category.tree",
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "label": "Supplier Demo Data",
+  "version": "1.0.0",
+  "description": "Supplier Demo Data",
+  "nodes": [
+    {
+      "name": "Supplier",
+      "process": "models.supplier.EachSave",
+      "args": [
+        [
+          {
+            "name": "MERIDIAN INTERNATIONAL GROUP CONSORTIUM LLC",
+            "short": "MERIDIAN",
+            "sn": "16375195"
+          },
+          {
+            "name": "DAFIER INC",
+            "short": "DAFIER",
+            "sn": "65795460"
+          },
+          {
+            "name": "Betar Auto Parts Industry Co.,Ltd",
+            "short": "Betar",
+            "sn": "74628270"
+          }
+        ]
+      ]
+    }
+  ],
+  "output": "{{$res.Supplier}}"
+}

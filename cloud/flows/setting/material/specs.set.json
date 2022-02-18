@@ -1,0 +1,28 @@
+{
+  "label": "Specs",
+  "version": "1.0.0",
+  "description": "Specs",
+  "nodes": [],
+  "output": {
+    "name": "Specs",
+    "columns": {
+      "Name": {
+        "label": "Name",
+        "edit": { "type": "input", "props": { "value": ":name" } }
+      },
+      "Values": {
+        "label": "Values",
+        "edit": { "type": "input", "props": { "value": ":value" } }
+      }
+    },
+    "list": {
+      "primary": "id",
+      "layout": {
+        "columns": [
+          { "name": "Name", "width": 12 },
+          { "name": "Values", "width": 12 }
+        ]
+      }
+    }
+  }
+}

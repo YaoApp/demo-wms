@@ -1,0 +1,141 @@
+{
+  "name": "Record",
+  "table": {
+    "name": "record",
+    "comment": "Record"
+  },
+  "columns": [
+    { "label": "ID", "name": "id", "type": "ID" },
+    {
+      "label": "Warehouse",
+      "name": "warehouse_id",
+      "type": "integer",
+      "comment": "Warehouse ID",
+      "index": true
+    },
+    {
+      "label": "Type",
+      "name": "type",
+      "type": "enum",
+      "option": ["Enter", "Outdoor", "Income", "Leave"],
+      "index": true,
+      "comment": "Type: Enter, Outdoor, Income, Leave"
+    },
+    {
+      "label": "Plan",
+      "name": "plan_id",
+      "type": "integer",
+      "comment": "Plan",
+      "index": true,
+      "nullable": true
+    },
+    {
+      "label": "SKU",
+      "name": "sku_id",
+      "type": "integer",
+      "comment": "SKU",
+      "index": true,
+      "nullable": true
+    },
+    {
+      "label": "SN",
+      "name": "sn",
+      "type": "string",
+      "length": 64,
+      "comment": "SN",
+      "index": true,
+      "nullable": true,
+      "__comment": "Rule: SkuSN(8) + BentchSN(6) + MarterailSN(10)"
+    },
+    {
+      "label": "User",
+      "name": "user_id",
+      "type": "integer",
+      "comment": "User",
+      "index": true,
+      "nullable": true
+    },
+    {
+      "label": "SkuSN",
+      "name": "sku_sn",
+      "type": "string",
+      "length": 8,
+      "comment": "SKU SN)",
+      "index": true,
+      "nullable": true
+    },
+    {
+      "label": "PlanSN",
+      "name": "plan_sn",
+      "type": "string",
+      "length": 6,
+      "comment": "Plan SN",
+      "index": true,
+      "nullable": true
+    },
+    {
+      "label": "Uptime",
+      "name": "uptime",
+      "type": "datetime",
+      "comment": "Uptime",
+      "index": true
+    },
+    {
+      "label": "Remark",
+      "name": "remark",
+      "type": "string",
+      "length": 200,
+      "comment": "Remark",
+      "nullable": true
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "enum",
+      "default": "Create",
+      "option": ["Create", "Effect", "Error", "Archive"],
+      "index": true,
+      "comment": "Status: Create, Effect, Error, Archive"
+    },
+    {
+      "label": "UniqueID",
+      "name": "unique_id",
+      "type": "string",
+      "length": 254,
+      "comment": "UniqueID",
+      "unique": true,
+      "nullable": true
+    }
+  ],
+  "relations": {
+    "user": {
+      "type": "hasOne",
+      "model": "user",
+      "key": "id",
+      "foreign": "user_id",
+      "query": {}
+    },
+    "sku": {
+      "type": "hasOne",
+      "model": "material.sku",
+      "key": "id",
+      "foreign": "sku_id",
+      "query": {}
+    },
+    "plan": {
+      "type": "hasOne",
+      "model": "plan",
+      "key": "id",
+      "foreign": "plan_id",
+      "query": {}
+    },
+    "warehouse": {
+      "type": "hasOne",
+      "model": "warehouse",
+      "key": "id",
+      "foreign": "warehouse_id",
+      "query": {}
+    }
+  },
+  "option": { "timestamps": true, "soft_deletes": true }
+}

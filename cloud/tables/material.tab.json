@@ -1,0 +1,71 @@
+{
+  "name": "Material",
+  "version": "1.0.0",
+  "decription": "Material Dashboard",
+  "bind": {
+    "model": "material",
+    "withs": { "category": {}, "supplier": {} }
+  },
+  "hooks": {},
+  "apis": {
+    "search": {
+      "default": [{ "withs": { "category": {}, "supplier": {} } }, null, 10]
+    }
+  },
+  "columns": {
+    "ID": { "@": "c.Label", "in": ["ID", ":id"] },
+    "Icon": { "@": "c.Images", "in": ["Icon", ":icon", 1, false] },
+    "Images": { "@": "c.Images", "in": ["Images", ":images", 9, true] },
+    "Detail": { "@": "c.TextArea", "in": ["Detail", ":detail", 10] },
+    "Category": { "@": "c.Category" },
+    "Supplier": { "@": "c.Supplier" }
+  },
+  "filters": {
+    "Keywords": { "@": "f.Keywords", "in": ["where.name.match"] }
+  },
+  "list": {
+    "primary": "id",
+    "layout": {
+      "columns": [
+        { "name": "ID", "width": 80 },
+        { "name": "Icon", "width": 80 },
+        { "name": "Name", "width": 200 },
+        { "name": "Supplier", "width": 100 },
+        { "name": "Category" }
+      ],
+      "filters": [{ "name": "Keywords" }]
+    },
+    "actions": {
+      "create": {
+        "type": "button",
+        "props": { "label": "Create New", "icon": "fas fa-plus" }
+      },
+      "pagination": {}
+    },
+    "option": { "operation": { "unfold": true, "hideView": true } }
+  },
+  "edit": {
+    "primary": "id",
+    "layout": {
+      "fieldset": [
+        {
+          "columns": [
+            { "name": "Name", "width": 12 },
+            { "name": "Category", "width": 6 },
+            { "name": "Supplier", "width": 6 }
+          ]
+        },
+        {
+          "columns": [
+            { "name": "Icon", "width": 24 },
+            { "name": "Images", "width": 24 },
+            { "name": "Detail", "width": 24 }
+          ]
+        }
+      ]
+    },
+    "actions": { "cancel": {}, "save": {}, "delete": { "type": "button" } }
+  },
+  "insert": {},
+  "view": {}
+}

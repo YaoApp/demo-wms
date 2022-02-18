@@ -1,0 +1,56 @@
+{
+  "label": "User Demo Data",
+  "version": "1.0.0",
+  "description": "User Demo Data",
+  "nodes": [
+    {
+      "name": "User",
+      "process": "models.user.EachSave",
+      "args": [
+        [
+          {
+            "supplier_id": 1,
+            "user_sn": "1001",
+            "name": "SP000001",
+            "idcard": "441821198508067017",
+            "mobile": "14659556287",
+            "type": "Supplier"
+          },
+          {
+            "supplier_id": 1,
+            "user_sn": "SP000002",
+            "name": "Bashar Hammour",
+            "idcard": "43042420001023111X",
+            "mobile": "971-50-9532250",
+            "type": "Supplier"
+          },
+          {
+            "supplier_id": 2,
+            "user_sn": "SP000003",
+            "name": "J T",
+            "idcard": "411327198703027518",
+            "mobile": "1-804-2315811",
+            "type": "Supplier"
+          },
+          {
+            "supplier_id": 3,
+            "user_sn": "SP000004",
+            "name": "Mickle Rochester",
+            "idcard": "44532219750220711X",
+            "mobile": "1-574-6072480",
+            "type": "Supplier"
+          },
+          {
+            "supplier_id": null,
+            "user_sn": "DL000001",
+            "name": "Ron Garrigus",
+            "idcard": "140430199809035112",
+            "mobile": "1-888-3145310",
+            "type": "Staff"
+          }
+        ]
+      ]
+    }
+  ],
+  "output": "{{$res.User}}"
+}

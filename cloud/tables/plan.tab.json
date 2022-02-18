@@ -1,0 +1,80 @@
+{
+  "name": "Plan",
+  "version": "1.0.0",
+  "decription": "计划表格",
+  "bind": {
+    "model": "plan",
+    "withs": {
+      "items": {
+        "query": { "select": ["id", "sku_id", "amount", "amount_plan"] }
+      }
+    }
+  },
+  "hooks": {
+    "after:save": "scripts.plan.AfterSave"
+  },
+  "apis": { "search": { "default": [null, null, 10] } },
+  "columns": {
+    "Start": {
+      "@": "c.DatePicker",
+      "in": ["Start", ":start", "YYYY-MM-DD @hh:mm:ss", true]
+    },
+    "End": {
+      "@": "c.DatePicker",
+      "in": ["End", ":end", "YYYY-MM-DD @hh:mm:ss", true]
+    },
+    "ItemsTable": {
+      "label": "ItemsTable",
+      "edit": {
+        "type": "dynamicList",
+        "props": {
+          "setting": "plan.items",
+          "value": ":items",
+          "query": { "sort": "$index" }
+        }
+      }
+    }
+  },
+  "filters": { "Keywords": { "@": "f.Keywords", "in": ["where.name.match"] } },
+  "list": {
+    "primary": "id",
+    "layout": {
+      "columns": [
+        { "name": "SN", "width": 100 },
+        { "name": "Name", "width": 240 },
+        { "name": "Start", "width": 260 },
+        { "name": "End", "width": 260 },
+        { "name": "Status" }
+      ],
+      "filters": [{ "name": "Keywords" }]
+    },
+    "actions": {
+      "create": {
+        "type": "button",
+        "props": { "label": "Create New", "icon": "fas fa-plus" }
+      },
+      "pagination": {}
+    },
+    "option": { "operation": { "unfold": true, "hideView": true } }
+  },
+  "edit": {
+    "primary": "id",
+    "layout": {
+      "fieldset": [
+        {
+          "columns": [
+            { "name": "Name", "width": 16 },
+            { "name": "Status", "width": 8 },
+            { "name": "SN", "width": 8 },
+            { "name": "Start", "width": 8 },
+            { "name": "End", "width": 8 },
+            { "name": "ItemsTable", "width": 24 }
+          ]
+        }
+      ]
+    },
+    "actions": { "cancel": {}, "save": {}, "delete": { "type": "button" } }
+  },
+  "insert": {},
+  "view": {}
+}

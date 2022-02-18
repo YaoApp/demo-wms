@@ -1,0 +1,18 @@
+{
+  "name": "User API",
+  "version": "1.0.0",
+  "description": "User API",
+  "group": "user",
+  "paths": [
+    {
+      "path": "/photo",
+      "method": "GET",
+      "process": "xiang.fs.GetURL",
+      "in": ["$query.file"],
+      "out": {
+        "status": 200,
+        "type": "image/png"
+      }
+    }
+  ]
+}

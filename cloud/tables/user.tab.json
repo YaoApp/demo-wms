@@ -1,0 +1,62 @@
+{
+  "name": "User",
+  "version": "1.0.0",
+  "decription": "User",
+  "bind": { "model": "user", "withs": { "supplier": {} } },
+  "hooks": {},
+  "apis": {
+    "search": {
+      "default": [{ "withs": { "supplier": {} } }, null, 10]
+    }
+  },
+  "columns": {
+    "ID": { "@": "c.Label", "in": ["ID", ":id"] },
+    "Photo": { "@": "c.Images", "in": ["Photo", ":photo", 1, false] },
+    "Supplier": { "@": "c.Supplier" }
+  },
+  "filters": { "Keywords": { "@": "f.Keywords", "in": ["where.name.match"] } },
+  "list": {
+    "primary": "id",
+    "layout": {
+      "columns": [
+        { "name": "ID", "width": 80 },
+        { "name": "SN", "width": 100 },
+        { "name": "Name", "width": 100 },
+        { "name": "IDCard", "width": 200 },
+        { "name": "Supplier", "width": 200 },
+        { "name": "Type", "width": 80 },
+        { "name": "Status" }
+      ],
+      "filters": [{ "name": "Keywords" }]
+    },
+    "actions": {
+      "create": {
+        "type": "button",
+        "props": { "label": "Create New", "icon": "fas fa-plus" }
+      },
+      "pagination": {}
+    },
+    "option": { "operation": { "unfold": true, "hideView": true } }
+  },
+  "edit": {
+    "primary": "id",
+    "layout": {
+      "fieldset": [
+        {
+          "columns": [
+            { "name": "Name", "width": 12 },
+            { "name": "SN", "width": 12 },
+            { "name": "Type", "width": 12 },
+            { "name": "Supplier", "width": 12 },
+            { "name": "IDCard", "width": 12 },
+            { "name": "Status", "width": 12 },
+            { "name": "Photo", "width": 24 }
+          ]
+        }
+      ]
+    },
+    "actions": { "cancel": {}, "save": {}, "delete": { "type": "button" } }
+  },
+  "insert": {},
+  "view": {}
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Category",
+  "table": {
+    "name": "category",
+    "comment": "Category"
+  },
+  "columns": [
+    { "label": "ID", "name": "id", "type": "ID" },
+    {
+      "label": "Name",
+      "name": "name",
+      "type": "string",
+      "length": 200,
+      "index": true
+    },
+    {
+      "label": "Parent",
+      "name": "parent_id",
+      "type": "integer",
+      "comment": "Parent ID",
+      "index": true,
+      "nullable": true
+    }
+  ],
+  "relations": {
+    "parent": {
+      "type": "hasOne",
+      "model": "material.category",
+      "key": "id",
+      "foreign": "parent_id",
+      "query": {}
+    }
+  },
+  "option": { "timestamps": true, "soft_deletes": true }
+}

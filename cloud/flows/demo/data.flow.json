@@ -1,0 +1,15 @@
+{
+  "label": "Demo Data",
+  "version": "1.0.0",
+  "description": "Demo Data",
+  "nodes": [
+    { "name": "Category", "process": "flows.demo.material.category" },
+    { "name": "Supplier", "process": "flows.demo.supplier" },
+    { "name": "Material", "process": "flows.demo.material" },
+    { "name": "Warehouse", "process": "flows.demo.warehouse" },
+    { "name": "User", "process": "flows.demo.user" },
+    { "name": "Plan", "process": "flows.demo.plan" },
+    { "name": "Record", "process": "flows.demo.record" }
+  ],
+  "output": "DONE"
+}

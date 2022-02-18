@@ -1,0 +1,43 @@
+{
+  "name": "Specs",
+  "table": {
+    "name": "spec",
+    "comment": "Specs"
+  },
+  "columns": [
+    { "label": "ID", "name": "id", "type": "ID" },
+    {
+      "label": "Material",
+      "name": "material_id",
+      "type": "bigInteger",
+      "comment": "Material ID",
+      "index": true,
+      "nullable": true
+    },
+    {
+      "label": "Name",
+      "name": "name",
+      "type": "string",
+      "nullable": true,
+      "index": true,
+      "comment": "Name"
+    },
+    {
+      "label": "Type",
+      "name": "type",
+      "type": "enum",
+      "default": "Text",
+      "option": ["Text", "Number", "Ratio", "Select"],
+      "index": true,
+      "comment": "Type"
+    },
+    {
+      "label": "Values",
+      "name": "values",
+      "type": "json",
+      "nullable": true,
+      "comment": "Values(Ratio/Select)"
+    }
+  ],
+  "option": { "timestamps": true, "soft_deletes": true }
+}

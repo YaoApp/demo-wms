@@ -1,0 +1,31 @@
+{
+  "label": "SKUList",
+  "version": "1.0.0",
+  "description": "SKUList",
+  "nodes": [
+    {
+      "name": "SKUList",
+      "engine": "xiang",
+      "query": {
+        "debug": true,
+        "select": ["sku.id as value", "material.name as name", "specs$"],
+        "from": "$material.sku",
+        "joins": [
+          {
+            "left": true,
+            "from": "material",
+            "key": "material.id",
+            "foreign": "sku.material_id"
+          }
+        ],
+        "limit": 1000
+      }
+    },
+    {
+      "name": "specs",
+      "process": "scripts.sku.WithFullName",
+      "args": ["{{$res.SKUList}}", "name"]
+    }
+  ],
+  "output": "{{$res.specs}}"
+}

@@ -1,0 +1,23 @@
+{
+  "label": "Category Demo Data",
+  "version": "1.0.0",
+  "description": "Category Demo Data",
+  "nodes": [
+    {
+      "name": "Category",
+      "process": "models.material.category.EachSave",
+      "args": [
+        [
+          { "name": "Hardware" },
+          { "name": "Building Materials" },
+          { "name": "Tool" },
+          { "name": "Plugin", "parent_id": 2 },
+          { "name": "Screw", "parent_id": 2 },
+          { "name": "Production Tools", "parent_id": 3 },
+          { "name": "Common Tools", "parent_id": 3 }
+        ]
+      ]
+    }
+  ],
+  "output": "{{$res.Category}}"
+}
